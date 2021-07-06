@@ -2,31 +2,81 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Text Widget',
+    title: 'Textfield Widget',
     theme: ThemeData(
       primarySwatch: Colors.purple,
       visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
     home: Scaffold(
       appBar: AppBar(
-        title: Text('Card'),
+        title: Text('Textfield'),
       ),
       body: Home(),
     ),
   ));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String text = "";
+  bool secure = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
-      width: 300,
-      color: Colors.blue[100],
-      //child: Image.network('https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'),
-        child: Image.asset('assets/images/cat1.jpg'),
+      padding: EdgeInsets.all(16),
+      child: Column(
+        children: [
+          TextField(
+            decoration: InputDecoration(
+                hintText: 'type your name',
+                hintStyle: TextStyle(
+                  color: Colors.red,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                prefixIcon: Icon(
+                  Icons.account_circle,
+                ),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    secure ? Icons.remove_red_eye : Icons.security),
+                  onPressed: () {
+                    setState(() {
+                      secure = !secure;
+                    });
+                  },
+                ),
+                errorText: text.isEmpty ? 'Empty' : null,
+                labelText: 'Name',
+                labelStyle: TextStyle(
+                  color: Colors.orange,
+                  fontSize: 18,
+                )),
+            keyboardType: TextInputType.text,
+            obscureText: secure,
+            obscuringCharacter: '*',
+            maxLength: 8,
+            // maxLines: 2,
+            onChanged: (value) {
+              text = value;
+            },
+            onSubmitted: (value) {
+              setState(() {
+                text = value;
+                print(text);
+              });
+            },
+          ),
+        ],
+      ),
     );
   }
 }
