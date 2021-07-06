@@ -25,8 +25,8 @@ class Home extends StatelessWidget {
       height: 300,
       width: 300,
       color: Colors.blue[100],
-      child: Image.network('https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'),
-     //    child: Image.asset('assets/images/cat1.jpg'),
+      //child: Image.network('https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80'),
+        child: Image.asset('assets/images/cat1.jpg'),
     );
   }
 }
