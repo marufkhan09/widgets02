@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Stack',
+    title: 'Text Widget',
+    theme: ThemeData(
+      primarySwatch: Colors.purple,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+    ),
     home: Scaffold(
       appBar: AppBar(
-        title: Text('Grid'),
+        title: Text('Card'),
       ),
       body: Home(),
     ),
@@ -17,22 +21,27 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.blue,
-      elevation: 5,
-      shadowColor: Colors.yellow,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
-        side: BorderSide(
-          color: Colors.red,
-          width: 2,
-        ),
-      ),
-      child: Container(
-        width: 300,
-        height: 300,
+    return Container(
+      height: 300,
+      width: 300,
+      color: Colors.grey,
+      child: Text('text ex,text ex,text ex,text ex,text ex,text ex,text ex,',
+        textAlign: TextAlign.center,
+        textScaleFactor: 2,
+       maxLines: 2,
+       style: TextStyle(
+         color: Colors.red,
+         fontSize: 11,
+         fontFamily: 'Festive',
+         //fontStyle: FontStyle.italic,
+         fontWeight: FontWeight.w500,
+         letterSpacing: 2,
+         wordSpacing: 5,
+       ),
+        overflow: TextOverflow.ellipsis,
 
       ),
+
     );
   }
 }
