@@ -29,9 +29,10 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: (){
         print('on tap');
+
       },
       child: Container(
         height: 50,
