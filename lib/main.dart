@@ -9,7 +9,7 @@ void main() {
     ),
     home: Scaffold(
       appBar: AppBar(
-        title: Text('Textfield'),
+        title: Text('Inkwell'),
       ),
       body: Home(),
     ),
@@ -29,49 +29,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return InkWell(
+      onTap: (){
+        print('on tap');
+      },
       child: Container(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            RaisedButton(
-              onPressed: () {
-                print('Raised Button Tapped');
-              },
-              child: Text('Click Me'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print('Elevated Button Tapped');
-              },
-              child: Text('Click Me'),
-            ),
-            FlatButton(
-                onPressed: () {
-                  print('Flat Button Tapped');
-                },
-                child: Text('Click Me')),
-            TextButton(onPressed: () {
-              print('Text Button Tapped');
-            },
-                child: Text('Click Me')),
-            ElevatedButton.icon(
-                onPressed: (){
-                  print('Icon Pressed');
-                },
-                icon: Icon(Icons.account_circle),
-                label: Text('Click Me')),
-            IconButton(
-              onPressed: (){
-                print('IconButton Pressed');
-              },
-              icon: Icon(Icons.account_circle),
-            ),
-            FloatingActionButton(onPressed: (){
-              print('floating Button');
-            })
-          ],
-        ),
+        height: 50,
+        width: 100,
+        alignment: Alignment.center,
+        child: Text('Button'),
       ),
     );
   }
