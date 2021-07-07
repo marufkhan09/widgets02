@@ -32,6 +32,8 @@ class _HomeState extends State<Home> {
     return GestureDetector(
       onTap: (){
         print('on tap');
+        var snackBar = SnackBar(content: Text('hello'),);
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
       },
       child: Container(
