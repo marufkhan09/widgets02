@@ -29,71 +29,50 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          TextField(
-            decoration: InputDecoration(
-                hintText: 'type your name',
-                hintStyle: TextStyle(
-                  color: Colors.red,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                prefixIcon: Icon(
-                  Icons.account_circle,
-                ),
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    secure ? Icons.remove_red_eye : Icons.security),
-                  onPressed: () {
-                    setState(() {
-                      secure = !secure;
-                    });
-                  },
-                ),
-                errorText: text.isEmpty ? 'Empty' : null,
-                labelText: 'Name',
-                labelStyle: TextStyle(
-                  color: Colors.orange,
-                  fontSize: 18,
-                )),
-            keyboardType: TextInputType.text,
-            obscureText: secure,
-            obscuringCharacter: '*',
-            maxLength: 8,
-            // maxLines: 2,
-            onChanged: (value) {
-              text = value;
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            RaisedButton(
+              onPressed: () {
+                print('Raised Button Tapped');
+              },
+              child: Text('Click Me'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print('Elevated Button Tapped');
+              },
+              child: Text('Click Me'),
+            ),
+            FlatButton(
+                onPressed: () {
+                  print('Flat Button Tapped');
+                },
+                child: Text('Click Me')),
+            TextButton(onPressed: () {
+              print('Text Button Tapped');
             },
-            onSubmitted: (value) {
-              setState(() {
-                text = value;
-                print(text);
-              });
-            },
-          ),
-        ],
+                child: Text('Click Me')),
+            ElevatedButton.icon(
+                onPressed: (){
+                  print('Icon Pressed');
+                },
+                icon: Icon(Icons.account_circle),
+                label: Text('Click Me')),
+            IconButton(
+              onPressed: (){
+                print('IconButton Pressed');
+              },
+              icon: Icon(Icons.account_circle),
+            ),
+            FloatingActionButton(onPressed: (){
+              print('floating Button');
+            })
+          ],
+        ),
       ),
     );
   }
 }
-
-//Text('text ex,text ex,text ex,text ex,text ex,text ex,text ex,',
-//         textAlign: TextAlign.center,
-//         textScaleFactor: 2,
-//        maxLines: 2,
-//        style: TextStyle(
-//          color: Colors.red,
-//          fontSize: 11,
-//          fontFamily: 'Festive',
-//          //fontStyle: FontStyle.italic,
-//          fontWeight: FontWeight.w500,
-//          letterSpacing: 2,
-//          wordSpacing: 5,
-//        ),
-//         overflow: TextOverflow.ellipsis,
-//
-//       ),
